@@ -28,6 +28,12 @@ const Form: React.FC = () => {
     localStorage.setItem('@registerUser', JSON.stringify(newRegister));
   }, [newRegister]);
 
+  const sendRecord = () =>
+    ReactGA.event({
+      category: 'User',
+      action: 'Send Form',
+    });
+
   function handleRegister(e: FormEvent<HTMLFormElement>): void {
     e.preventDefault();
 
@@ -46,6 +52,7 @@ const Form: React.FC = () => {
       setName('');
       setEmail('');
       setInputError('');
+      sendRecord();
 
       history.push('/thanks');
     } catch (err) {
@@ -81,7 +88,9 @@ const Form: React.FC = () => {
           placeholder="E-mail"
         />
 
-        <button type="submit">Quero acompanhar a série</button>
+        <button onClick={sendRecord} type="submit">
+          Quero acompanhar a série
+        </button>
       </FormDiv>
     </Container>
   );
