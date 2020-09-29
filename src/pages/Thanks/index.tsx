@@ -1,5 +1,7 @@
 import React from 'react';
 
+import ReactGA from 'react-ga';
+
 import {
   Container,
   ThanksHeader,
@@ -8,6 +10,19 @@ import {
   TelegramDiv,
 } from './styles';
 import TelegramImg from '../../assets/telegram.png';
+
+const sendConsultant = () =>
+  ReactGA.event({
+    category: 'Talk to the consultant',
+    action: 'Send Form',
+  });
+
+const sendTelegram = () =>
+  ReactGA.event({
+    category: 'Telegram',
+    action: 'Send Form',
+  });
+
 const Thanks: React.FC = () => {
   return (
     <Container>
@@ -33,7 +48,9 @@ const Thanks: React.FC = () => {
           ações de emergência, mas também para te deixar preparado para um novo
           normal que viveremos. Conheça o Plano de retomada!
         </p>
-        <button>Falar com Consultor</button>
+        <button type="submit" onClick={sendConsultant}>
+          Falar com Consultor
+        </button>
       </ThanksMidlle>
 
       <ThanksFooter>
@@ -43,7 +60,9 @@ const Thanks: React.FC = () => {
         </p>
         <TelegramDiv>
           <img src={TelegramImg} alt="Logo telegram" />
-          <button>Conecte-se com a gente: telegram</button>
+          <button type="submit" onClick={sendTelegram}>
+            Conecte-se com a gente: telegram
+          </button>
         </TelegramDiv>
       </ThanksFooter>
     </Container>
