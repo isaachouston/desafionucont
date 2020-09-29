@@ -1,6 +1,7 @@
 import React, { useState, FormEvent, useEffect } from 'react';
 
 import { useHistory } from 'react-router-dom';
+import ReactGA from 'react-ga';
 
 import { Container, FormDiv } from './styles';
 
@@ -30,7 +31,7 @@ const Form: React.FC = () => {
   function handleRegister(e: FormEvent<HTMLFormElement>): void {
     e.preventDefault();
 
-    if (!newName) {
+    if (!newName || !newEmail) {
       setInputError('Digite o nome do contador.');
       return;
     }
@@ -51,6 +52,11 @@ const Form: React.FC = () => {
       setInputError('Digite o nome do contador.');
     }
   }
+
+  useEffect(() => {
+    ReactGA.initialize('UA-179277629-1');
+    ReactGA.pageview('/');
+  }, []);
 
   return (
     <Container>
