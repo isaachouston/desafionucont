@@ -1,5 +1,7 @@
 import React from 'react';
 
+import ReactGA from 'react-ga';
+
 import EllipseColum from '../../components/Ellipse';
 import Form from '../../components/Form';
 import FerPerfilImg from '../../assets/ferperfil.png';
@@ -16,6 +18,12 @@ import {
   ConsultingDiv,
   FooterDiv,
 } from './styles';
+
+const sendRecord = () =>
+  ReactGA.event({
+    category: 'Consultancy',
+    action: 'Send Form',
+  });
 
 const Dashboard: React.FC = () => {
   return (
@@ -45,7 +53,9 @@ const Dashboard: React.FC = () => {
           precisa de informações e dedicação.
         </p>
         <h4>Vamos conversar a respeito?</h4>
-        <button>Quero assistir a série: consultoria contábil na prática</button>
+        <button type="submit" onClick={sendRecord}>
+          Quero assistir a série: consultoria contábil na prática
+        </button>
       </MiddleContent>
       <MainContent>
         <h2>Esse série é pra você contador:</h2>

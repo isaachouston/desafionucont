@@ -30,7 +30,7 @@ const Form: React.FC = () => {
 
   const sendRecord = () =>
     ReactGA.event({
-      category: 'User',
+      category: 'User Registration',
       action: 'Send Form',
     });
 
