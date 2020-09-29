@@ -1,6 +1,6 @@
 import React, { useState, FormEvent, useEffect } from 'react';
 
-import { useHistory } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import ReactGA from 'react-ga';
 
 import { Container, FormDiv } from './styles';
@@ -11,10 +11,10 @@ interface Register {
 }
 
 const Form: React.FC = () => {
-  const history = useHistory();
   const [inputError, setInputError] = useState('');
   const [newName, setName] = useState('');
   const [newEmail, setEmail] = useState('');
+  const [redirect, setRedirect] = useState(false);
   const [newRegister, setRegister] = useState<Register[]>(() => {
     const storageRegister = localStorage.getItem('@registerUser');
     if (storageRegister) {
@@ -53,8 +53,7 @@ const Form: React.FC = () => {
       setEmail('');
       setInputError('');
       sendRecord();
-
-      history.push('/thanks');
+      return setRedirect(true);
     } catch (err) {
       setInputError('Digite o nome do contador.');
     }
@@ -65,7 +64,9 @@ const Form: React.FC = () => {
     ReactGA.pageview('/');
   }, []);
 
-  return (
+  return redirect ? (
+    <Redirect to="/thanks" />
+  ) : (
     <Container>
       <h3>Fale agora com nossos consultores!</h3>
       <p>
