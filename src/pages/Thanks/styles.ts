@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { shade } from 'polished';
 
 import ferbanner from '../../assets/ferbanner.png';
 
@@ -92,6 +93,10 @@ export const ThanksMidlle = styled.div`
     border-radius: 31px;
     text-transform: uppercase;
     margin-bottom: 59px;
+    transition: background-color 0.6s ease-in-out;
+    &:hover {
+      background: ${shade(0.6, '#ffb700')};
+    }
   }
 `;
 export const ThanksFooter = styled.footer`
@@ -135,6 +140,10 @@ export const TelegramDiv = styled.div`
     border-radius: 31px;
     text-transform: uppercase;
     margin: 53px 0 53px -70px;
+    transition: background-color 0.6s ease-in-out;
+    &:hover {
+      background: ${shade(0.6, '#ffb700')};
+    }
     @media (max-width: 800px) {
       width: 70%;
       margin: 53px 0 53px -80px;
