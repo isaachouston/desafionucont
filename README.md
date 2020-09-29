@@ -16,7 +16,7 @@ Esse site, permite que seja possível registrar um formúlário que é guardado 
     Typescript
     EsLint;
     Prettier;
-    React-navigation;
+    React-router-dom;
     Yarn;
 
 🏁 Passos para rodar o projeto:
