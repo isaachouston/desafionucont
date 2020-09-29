@@ -7,7 +7,7 @@
 
 💡 Funcionalidades:
 
-Esse site, permite que seja possível registrar um formúlário que é guardado em uma base de dados, possuí rastreamento de paginas com Google Analytics, técnicas básicas de SEO na página para rankeamento no Google e compartilha de maneira descritiva no Facebook, Instagram.
+Esse site, permite que seja possível registrar um formúlário que é guardado em uma base de dados, possuí rastreamento de paginas com Google Analytics, técnicas básicas de SEO na página para rankeamento no Google e compartilha de maneira descritiva no Facebook, Whatsapp.
 
 ⚙️ Tecnologias utilizadas:
 
